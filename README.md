@@ -7,6 +7,7 @@
    面向对象设计的思路（每次写文件都要用fopen，fwrite ，fdsisplay，定义一个莫名其妙的integer handle）
    
 使用说明：
+
 1-->首先载入package（因为我在class 外又加了一层 package---强迫症又犯了:(）
 import StreamFilePkg::*;
 
