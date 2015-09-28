@@ -2,15 +2,21 @@
 把数据流输出到文件
 
 简单的 systemverilog 程序。
+
 粗略地展示：
+
    sv和verilog的区别、
+   
    面向对象设计的思路（每次写文件都要用fopen，fwrite ，fdsisplay，定义一个莫名其妙的integer handle）
    
 使用说明：
+
 直接例化使用和普通module 一样
 
 stream_to_file #(
+
 	.FILE_PATH		("E:/project/tpm.txt"),     // 要保存到的文件路径，最好是全路径，不然会自动保存到仿真默认路径
+	
 	.HEAD_MARK		("--@--Young--@--"),        //文件头标识，默认是没有的 “”
 	
 	.DATA_SPLIT		("     "),                  //数据分割，默认是4个空格，可以设成 "," ,  ";" "\t" ; "####"
