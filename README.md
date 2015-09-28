@@ -8,10 +8,9 @@
    
 使用说明：
 直接例化使用和普通module 一样
-stream_to_file #(
 
+stream_to_file #(
 	.FILE_PATH		("E:/project/tpm.txt"),     // 要保存到的文件路径，最好是全路径，不然会自动保存到仿真默认路径
-	
 	.HEAD_MARK		("--@--Young--@--"),        //文件头标识，默认是没有的 “”
 	
 	.DATA_SPLIT		("     "),                  //数据分割，默认是4个空格，可以设成 "," ,  ";" "\t" ; "####"
