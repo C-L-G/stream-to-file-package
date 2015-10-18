@@ -5,7 +5,7 @@ ______________  \/  \/ | \/ | ______________
 --Module Name:  stream_to_file.sv
 --Project Name: stream-to-file-package
 --Data modified: 2015-09-28 11:02:56 +0800
---author:Young-ÎâÃ÷
+--author:Young-吴明
 --E-mail: wmy367@Gmail.com
 ****************************************/
 `timescale 1ns/1ps
