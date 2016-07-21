@@ -7,7 +7,7 @@
 
    sv和verilog的区别、
    
-   面向对象设计的思路（每次写文件都要用fopen，fwrite ，fdsisplay，定义一个莫名其妙的integer handle）
+   面向对象设计的思路（以前的写法太烂,为什么每次写文件都要用fopen，fwrite ，fdsisplay，定义一个莫名其妙的integer handle）
    
 使用说明：
 
