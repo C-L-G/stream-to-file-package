@@ -5,7 +5,7 @@ ______________  \/  \/ | \/ | ______________
 --Module Name:  streamfilepkg.sv
 --Project Name: stream-to-file-package
 --Data modified: 2015-09-28 11:02:56 +0800
---author:Young-����
+--author:Young-ÎâÃ÷
 --E-mail: wmy367@Gmail.com
 ****************************************/
 `timescale 1ns/1ps
@@ -38,7 +38,7 @@ task close_file;
 	end
 endtask: close_file
 
-task automatic printf(integer data);
+task automatic printf(longint data);
 	$fwrite(handle,"%d",data);
 endtask: printf
 
@@ -58,7 +58,7 @@ task automatic put_2d(integer data0,integer data1,string split = "     ");
 	$fwrite(handle,"\n");
 endtask: put_2d
 
-task automatic puts(integer data [],string split = "    ");
+task automatic puts(longint data [],string split = "    ");
 	int s;
 	s = data.size();
 	if (s > 0)begin

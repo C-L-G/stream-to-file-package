@@ -2,31 +2,40 @@
 把数据流输出到文件
 
 简单的 systemverilog 程序。
+
 粗略地展示：
+
    sv和verilog的区别、
-   面向对象设计的思路（每次写文件都要用fopen，fwrite ，fdsisplay，定义一个莫名其妙的integer handle）
+   
+   面向对象设计的思路（以前的写法太烂,为什么每次写文件都要用fopen，fwrite ，fdsisplay，定义一个莫名其妙的integer handle）
    
 使用说明：
 
-1-->首先载入package（因为我在class 外又加了一层 package---强迫症又犯了:(）
+直接例化使用和普通module 一样
 
-import StreamFilePkg::*;
+stream_to_file #(
 
-2-->定义一个类
-StreamFileClass 实例名 = new("文件路径（默认使用modelsim仿真的路径）");
+	.FILE_PATH		("E:/project/tpm.txt"),     // 要保存到的文件路径，最好是全路径，不然会自动保存到仿真默认路径
+	
+	.HEAD_MARK		("--@--Young--@--"),        //文件头标识，默认是没有的 “”
+	
+	.DATA_SPLIT		("     "),                  //数据分割，默认是4个空格，可以设成 "," ,  ";" "\t" ; "####"
+	
+	.TRIGGER_TOTAL	(1000	)                   // 抓取数量，默认 1000行
+	
+)stream_to_file_inst(
 
-3-->>使用类方法
-
-（1）实例名.put_1d(数据）
-
-（2）实例名.put_2d(数据1，数据2，分割符--可选参数‘默认是空格’）
-
- (3) 实例名.puts({数据1，数据2，数据3，......,数据n}，分割符--可选参数‘默认是空格’）
- 
- 
-4-->>关闭文件
-
-实例名.close_file(); 其实关不关无所谓
+	.enable				(1'b1		),          //使能控制，相当于暂停 开始
+	
+	.posedge_trigger	(			),          //用XX上升沿，触发抓取
+	
+	.negedge_trigger    (clock		),          //用clock下降沿，触发抓取
+	
+	.signal_trigger     (			),          //用XX变化，触发抓取，（三个可同时使用）
+	
+	.data 		        ('{SR,SG,SB,CIE_L,CIE_A,CIE_B,rgb_to_lab_inst.X,rgb_to_lab_inst.Y,rgb_to_lab_inst.Z})
+	
+); //数据格式 ‘{数据0，数据1,....,数据n}  注意一定要加“{”前面的 ‘ ，不然会报错！！！
 
 
 --@--Young--@--
