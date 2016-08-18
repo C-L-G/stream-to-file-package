@@ -11,7 +11,7 @@
 
 直接例化使用和普通module 一样
 
-"""
+>
 stream_to_file #(
 	.FILE_PATH		("E:/project/tpm.txt"),     // 要保存到的文件路径，最好是全路径，不然会自动保存到仿真默认路径
 	.HEAD_MARK		("--@--Young--@--"),        //文件头标识，默认是没有的 “”
@@ -25,10 +25,10 @@ stream_to_file #(
 	.data 		        ('{SR,SG,SB,CIE_L,CIE_A,CIE_B,rgb_to_lab_inst.X,rgb_to_lab_inst.Y,rgb_to_lab_inst.Z})
 	
 ); //数据格式 ‘{数据0，数据1,....,数据n}  注意一定要加“{”前面的 ‘ ，不然会报错！！！
-"""
+
 
 ###更高级的使用方式###
-"""
+>
 import StreamFilePkg::*;	//和C语言的include 类似
 StreamFileClass sf;		//定义 fileclass 类似 reg a;
 int  KK;
@@ -40,7 +40,7 @@ initial begin
     end 
     sf.close_file;
 end
-"""
+
 **--@--Young--@--**
 
 
